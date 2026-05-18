@@ -31,7 +31,6 @@ $statements = array_filter(array_map('trim', explode(';', $sql)));
 
 $executed = 0;
 try {
-    $pdo->beginTransaction();
     foreach ($statements as $statement) {
         if ($statement === '') {
             continue;
@@ -39,7 +38,6 @@ try {
         $pdo->exec($statement);
         $executed++;
     }
-    $pdo->commit();
 
     $tables = $pdo->query("SHOW TABLES")->fetchAll(PDO::FETCH_COLUMN);
     echo "Migracao concluida. Statements executados: {$executed}\n";
@@ -49,9 +47,6 @@ try {
     }
     echo "\nRemova migrate.php apos uso por seguranca.\n";
 } catch (Throwable $e) {
-    if ($pdo->inTransaction()) {
-        $pdo->rollBack();
-    }
     http_response_code(500);
     echo "Falha na migracao: " . $e->getMessage() . "\n";
 }
