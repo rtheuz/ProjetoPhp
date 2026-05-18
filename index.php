@@ -129,7 +129,7 @@ $error = $_SESSION['error'] ?? '';
 unset($_SESSION['message'], $_SESSION['error']);
 
 $page_titles = [
-    'dashboard' => ['title' => 'Command Center', 'subtitle' => 'Visão geral da operação logística em tempo real'],
+    'dashboard' => ['title' => 'Centro de Comando', 'subtitle' => 'Visão geral da operação logística em tempo real'],
     'motoristas' => ['title' => 'Motoristas', 'subtitle' => 'Cadastro e status da equipe de condução'],
     'veiculos' => ['title' => 'Frota', 'subtitle' => 'Gestão de veículos e capacidade de carga'],
     'rotas' => ['title' => 'Rotas', 'subtitle' => 'Mapeamento de origem, destino e métricas'],
@@ -145,7 +145,7 @@ $page_meta = $page_titles[$current_page] ?? $page_titles['dashboard'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS FLEET — Controle Logístico</title>
+    <title>Projeto PHP — Controle Logístico</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
     <script src="app.js" defer></script>
@@ -173,7 +173,7 @@ $page_meta = $page_titles[$current_page] ?? $page_titles['dashboard'];
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
                     </div>
                     <div>
-                        <h1>Nexus Fleet</h1>
+                        <h1>Projeto PHP</h1>
                         <p>Logistics OS v2.0</p>
                     </div>
                 </div>
@@ -210,7 +210,7 @@ $page_meta = $page_titles[$current_page] ?? $page_titles['dashboard'];
                 </a>
             </nav>
 
-            <div class="sidebar-footer">SYS ONLINE · <?= date('Y') ?></div>
+            <div class="sidebar-footer">by rtheuz</div>
         </aside>
 
         <main class="main-content">
