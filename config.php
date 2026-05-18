@@ -1,18 +1,20 @@
 <?php
-// Configuração do banco de dados
-define('DB_HOST', 'localhost');
-define('DB_USER', 'cdc_3b_g4');
-define('DB_PASS', 'g4B@123');
-define('DB_NAME', 'cdc_3b_grupo4');
+// Configuração do banco de dados — usa variáveis de ambiente em produção
+// Para desenvolvimento local, valores padrão são usados como fallback.
+
+$db_host = getenv('DB_HOST') ?: 'localhost';
+$db_user = getenv('DB_USER') ?: 'cdc_3b_g4';
+$db_pass = getenv('DB_PASS') ?: 'g4B@123';
+$db_name = getenv('DB_NAME') ?: 'cdc_3b_grupo4';
 
 try {
     $pdo = new PDO(
-        'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8mb4',
-        DB_USER,
-        DB_PASS,
+        "mysql:host={$db_host};dbname={$db_name};charset=utf8mb4",
+        $db_user,
+        $db_pass,
         [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         ]
     );
 } catch (PDOException $e) {
