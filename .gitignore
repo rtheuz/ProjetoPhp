@@ -1,8 +1,0 @@
-.env
-/.env.local
-/vendor/
-/node_modules/
-/.idea/
-/.vscode/
-.DS_Store
-*.log
